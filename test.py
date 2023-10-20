@@ -1,1 +1,0 @@
-print("testing code-server")
