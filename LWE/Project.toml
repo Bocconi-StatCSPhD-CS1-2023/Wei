@@ -1,4 +1,4 @@
-name = "CLWE"
-uuid = "fb83d3fc-42d2-4904-8a5c-34b370cd9f4e"
+name = "LWE"
+uuid = "656e51c5-a61d-4a03-860f-77d8925333de"
 authors = ["qixiaoweiwei <290189613@qq.com>"]
 version = "0.1.0"

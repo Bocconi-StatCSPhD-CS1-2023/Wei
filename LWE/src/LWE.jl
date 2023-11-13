@@ -1,5 +1,5 @@
-module CLWE
+module LWE
 
 greet() = print("Hello World!")
 
-end # module CLWE
+end # module LWE
