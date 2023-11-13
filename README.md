@@ -1,1 +1,3 @@
-This is the prototype implementation of my course project. My goal is to implement a few well-known cryptographic primitives based LWE/ringLWE. I don't claim anything about the security of the implementation. The code is divided into three parts: arithmetic over finite field, LWE, cryptographic primitives. At the moment, they are in three files. After I finished an initial basic implementation, I will refactor them into three different packages.
+My goal is to implement a few well-known cryptographic primitives based on relatively modern assumptions, including pairing, lattice, etc. This project is for educational use. Thus, concept and clarity matter more than practicality. I don't claim anything about the practical security or efficiency of the implementation. 
+
+For the course project, I will focus on lattice-based primitives. 

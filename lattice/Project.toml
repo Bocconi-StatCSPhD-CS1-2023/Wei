@@ -1,4 +1,4 @@
-name = "LWE"
-uuid = "656e51c5-a61d-4a03-860f-77d8925333de"
+name = "lattice"
+uuid = "52925cfe-57af-4871-8877-24a175dce942"
 authors = ["qixiaoweiwei <290189613@qq.com>"]
 version = "0.1.0"
