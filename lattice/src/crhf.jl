@@ -10,6 +10,8 @@ function crhfSIS(z, ctx::HashContextSIS)
     return map((x) -> x % ctx.q, ctx.A * z)
 end
 
+
+
 struct HashContextRingSIS
     q::Int
     n::Int
@@ -38,8 +40,4 @@ function crhfRingSIS(z, ctx::HashContextRingSIS)
         r = r + z * ctx.a[i]
     end
     return r
-end
-
-function getRandomPrime(l)
-    return Random.rand(primes(2^l, 2^(l+1)))
 end

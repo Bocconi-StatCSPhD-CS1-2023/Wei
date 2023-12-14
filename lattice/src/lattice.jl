@@ -10,5 +10,5 @@ export HashContextRingSIS, crhfRingSIS
 export getRandomPrime
 
 include("crhf.jl")
-
+include("utils.jl")
 end
