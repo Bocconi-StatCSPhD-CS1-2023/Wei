@@ -3,7 +3,14 @@ struct HashContextSIS
     n::Int
     m::Int
     A::Matrix
-    HashContextSIS(q, n, m) = isprime(q) && n > 0 && m > 0 ? new(q, n, m, Random.rand(1:q, (n, m))) : error("Invalid paramters!") 
+end
+
+function HashContextSIS(q, n, m)
+    if !(isprime(q) && n > 0 && m > 0)
+        error("Invalid paramters!")
+    end
+    A = Random.rand(1:q, (n, m))
+    return HashContextSIS(q, n, m, A)
 end
 
 function crhfSIS(z, ctx::HashContextSIS)
