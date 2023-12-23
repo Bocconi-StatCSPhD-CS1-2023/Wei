@@ -3,10 +3,10 @@ module lattice
 using Random
 using Primes
 using LinearAlgebra
-using AbstractAlgebra
 
 export HashContextSIS, crhfSIS
 export HashContextRingSIS, crhfRingSIS
+export PolyRing, mult, NTT_mult_nega
 export getRandomPrime
 
 include("crhf/ringsis.jl")
