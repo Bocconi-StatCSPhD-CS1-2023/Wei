@@ -113,24 +113,3 @@ function NTT_mult_nega(x, y, r)
     end
     return c
 end
-
-#an example
-#r = PolyRing(12289, 1024, 12277, 3263, 9089)
-
-#print(mult([1,2,3], [4,5,6], r))
-#x = zeros(Int, r.n)
-#y = zeros(Int, r.n)
-#for i in 1:round(Int, r.n)
-#    x[i] = i
-#    y[i] = 2*i
-#end
-
-#z1 = mult(x, y, r)
-#z2 = NTT_mult(x, y, r)
-#z3 = NTT_mult_nega(x, y, r)
-#for i in 1:r.n
-#    println(z1[i])
-#    println(z2[i])
-#    println(z3[i])
-#    println()
-#end
