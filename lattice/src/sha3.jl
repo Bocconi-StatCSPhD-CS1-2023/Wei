@@ -215,12 +215,18 @@ function SHA3_512(M)
 end
 
 function SHAKE128(d, M)
+    if d % 8 != 0
+        error("Invalid output length!")
+    end
     apd = BitArray([1, 1, 1, 1])
     M = vcat(M, apd)
     return keccak_c(256, d, M)
 end
 
 function SHAKE256(d, M)
+    if d % 8 != 0
+        error("Invalid output length!")
+    end
     apd = BitArray([1, 1, 1, 1])
     M = vcat(M, apd)
     return keccak_c(512, d, M)
