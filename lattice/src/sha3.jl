@@ -229,8 +229,20 @@ end
 
 #some helper functions
 
+function Bits_2_Int(B)
+    rt = 0
+    for i in eachindex(B)
+        rt *= 2
+        rt += B[i]
+    end
+    return rt
+end
+
 function Bits_2_Byte(B)
-    return UInt8(B[1] * 128 + B[2] * 64 + B[3] * 32 + B[4] * 16 + B[5] * 8 + B[6] * 4 + B[7] * 2 + B[8] * 1)
+    if length(B) != 8
+        error("Wrong length!")
+    end
+    return UInt8(Bits_2_Int(B))
 end
 
 function Bits_2_Bytes(B)

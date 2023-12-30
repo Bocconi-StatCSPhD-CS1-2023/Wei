@@ -1,1 +1,1 @@
-We first implement (1) Number Theoretical Transformation (2) and SHA3. Based on them, we implement (3) two lattice based collision resistant hash functions and (4) the standard post-quantum KEM Kyber.
+We implement (1) Number Theoretical Transformation (2) SHA3 and (3) two lattice based collision resistant hash functions.
