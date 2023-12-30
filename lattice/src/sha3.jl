@@ -14,14 +14,6 @@ function  arr_2_str(w, x, y, z)
     return w *(5 * y + x ) + z + 1
 end
 
-function  str_2_arr(w, idx)
-    idx = idx - 1
-    z = idx % w
-    y = floor(Int, idx / (5 * w))
-    x = floor(Int, (idx % (5 * w))/w)
-    return x, y, z
-end
-
 function theta(w, A)
     C = BitArray(undef, 5*w)
     for x in 0:4
@@ -196,6 +188,8 @@ function keccak_c(c, d, M)
     return sponge(1600, 24, d, 1600-c, M)
 end
 
+# the main hash functions
+
 function SHA3_224(M)
     apd = BitArray([0, 1])
     M = vcat(M, apd)
@@ -232,6 +226,9 @@ function SHAKE256(d, M)
     return keccak_c(512, d, M)
 end
 
+
+#some helper functions
+
 function Bits_2_Byte(B)
     return UInt8(B[1] * 128 + B[2] * 64 + B[3] * 32 + B[4] * 16 + B[5] * 8 + B[6] * 4 + B[7] * 2 + B[8] * 1)
 end
@@ -248,7 +245,26 @@ function Bits_2_Bytes(B)
     return bt
 end
 
-M = BitArray([0,0,0,0,0,0,0,0])
-h = SHAKE128(1024, M)
-println(Bits_2_Bytes(h))
+function Byte_2_Bits(B)
+    R = BitArray(undef, 8)
+    for i in 1:8
+        R[i] = B % 2
+        B = floor(Int, B/2)
+    end
+    return R
+end
+
+function Bytes_2_Bits(B)
+    R = BitArray([])
+    for i in eachindex(B)
+        R = vcat(R, Byte_2_Bits(B[i]))
+    end
+    return R
+end
+
+
+#an example
+#M = Bytes_2_Bits(b"this code is brilliant")
+#h = SHA3_512(M)
+#println(Bits_2_Bytes(h))
 

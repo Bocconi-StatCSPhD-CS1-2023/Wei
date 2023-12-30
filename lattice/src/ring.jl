@@ -39,6 +39,7 @@ function PolyRing(q, n, ni, w, ϕ)
     return PolyRing(q, n, ni, ϕ, ϕi, W, WI, Φ, ΦI)
 end
 
+#Canonical Multiplication, for variation
 function mult(x, y, r)
     z = zeros(Int, r.n)
     for i in eachindex(x)
@@ -57,6 +58,7 @@ function mult(x, y, r)
     return z
 end
 
+#NTT 
 function NTT(a, r)
     b = zeros(Int, r.n)
     for i in 1:r.n 
@@ -70,6 +72,7 @@ function NTT(a, r)
     return b
 end
 
+#Inverse NTT
 function INTT(b, r)
     a = zeros(Int, r.n)
     for i in 1:r.n 
@@ -84,6 +87,7 @@ function INTT(b, r)
     return a
 end
 
+#NTT multiplication, support half of the range
 function NTT_mult(x,y,r)
     a = NTT(x, r)
     b = NTT(y, r)
@@ -94,6 +98,7 @@ function NTT_mult(x,y,r)
     return INTT(c, r)
 end
 
+#NTT multiplication, support full range
 function NTT_mult_nega(x, y, r)
     a = zeros(Int, r.n)
     b = zeros(Int, r.n)
@@ -109,6 +114,7 @@ function NTT_mult_nega(x, y, r)
     return c
 end
 
+#an example
 #r = PolyRing(12289, 1024, 12277, 3263, 9089)
 
 #print(mult([1,2,3], [4,5,6], r))

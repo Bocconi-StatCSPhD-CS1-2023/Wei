@@ -38,6 +38,6 @@ function crhfRingSIS_NTT(z, ctx::HashContextRingSIS)
     return r
 end
 
-
+#an example
 #r = PolyRing(12289, 1024, 12277, 3263, 9089)
 #ctx = HashContextRingSIS(5, r)
