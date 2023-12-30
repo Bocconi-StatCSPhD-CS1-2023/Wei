@@ -1,4 +1,4 @@
-include("../ring.jl")
+include("ring.jl")
 
 struct HashContextRingSIS
     m::Int
