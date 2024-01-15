@@ -1,3 +1,8 @@
+name = "lattice"
+uuid = "4c0f7804-b410-40a7-a01c-459b7c8fcfa4"
+authors = ["qixiaoweiwei <290189613@qq.com>"]
+version = "0.1.0"
+
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Primes = "27ebfcd6-29c5-5fa9-bf4b-fb8fc14df3ae"
