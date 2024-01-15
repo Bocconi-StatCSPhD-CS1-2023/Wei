@@ -22,8 +22,8 @@ the result can be compared with the tool on https://emn178.github.io/online-tool
 
 
 (3) SIS hash function
-#first initialize the context
-#in the example, a random input is generated
+first initialize the context
+in the example, a random input is generated
 
 ctx = HashContextSIS(43, 14, 43) 
 z = rand(0:ctx.q-1, ctx.m) 
@@ -31,9 +31,9 @@ println(crhfSIS(z, ctx))
 
 
 (4) RingSIS hash function
-#first initialize a polynomial ring and initialize the context
-#the parameters are specially selected for the algorithm to work, it's better not to change them
-#in the example, a random input is generated
+first initialize a polynomial ring and initialize the context
+the parameters are specially selected for the algorithm to work, it's better not to change them
+in the example, a random input is generated
 
 r = PolyRing(12289, 1024, 12277, 3263, 9089) 
 ctx = HashContextRingSIS(5, r) 
@@ -47,9 +47,9 @@ h = crhfRingSIS_NTT(z, ctx)
 
 
 (5) Brute Force polynomial mutiplcation
-#first initialize the polynomial ring
-#the parameters are specially selected for the algorithm to work, it's better not to change them
-#two random inputs x and y are generated
+first initialize the polynomial ring
+the parameters are specially selected for the algorithm to work, it's better not to change them
+two random inputs x and y are generated
 
 r = PolyRing(12289, 1024, 12277, 3263, 9089)
 x = zeros(Int, r.n)
@@ -65,9 +65,9 @@ println(z)
 
 
 (6) NTT based multiplication
-#first initialize the polynomial ring
-#the parameters are specially selected for the algorithm to work, it's better not to change them
-#two random inputs x and y are generated
+first initialize the polynomial ring
+the parameters are specially selected for the algorithm to work, it's better not to change them
+two random inputs x and y are generated
 
 
 r = PolyRing(12289, 1024, 12277, 3263, 9089)
@@ -81,5 +81,5 @@ z = NTT_mult_nega(x, y, r)
 println(z)
 
 
-#for (5) and (6) one should check that if the same x and y are used then the results are the same
-#in crhf/test.jl, there are codes that check this
+for (5) and (6) one should check that if the same x and y are used then the results are the same
+in crhf/test.jl, there are codes that check this
