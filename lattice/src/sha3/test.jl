@@ -12,8 +12,11 @@ function str_2_bytes(s)
 end
 
 #Test SHA3
+#To test, change the following flag to true
 sha3_test = false
 if sha3_test
+    #on some environment, one might need to change the path
+    #to test other functions, change the name of the file
     f = open("./lattice/src/sha3/test_vectors/SHA3_512.rsp", "r")
     len = []
     msg = []
@@ -33,6 +36,7 @@ if sha3_test
     close(f)
 
     for i in eachindex(len)
+        #to test other functions, change the name of the function
         mine = Bits_2_Bytes(SHA3_512(Bytes_2_Bits(msg[i][1:Int(len[i]/8)])))
         if mine != md[i]
             println("Uh oh.")
@@ -41,9 +45,12 @@ if sha3_test
 end
 
 #Test SHAKE
-shake_test = false
+#To test, change the following flag to true
+shake_test = true
 if shake_test
-    f = open("./lattice/src/sha3/test_vectors/SHAKE256.rsp", "r")
+    #on some environment, one might need to change the path
+    #to test other functions, change the name of the file
+    f = open("./lattice/src/sha3/test_vectors/SHAKE128.rsp", "r")
     len = []
     msg = []
     md = []
@@ -62,7 +69,8 @@ if shake_test
     close(f)
 
     for i in 1:20
-        mine = Bits_2_Bytes(SHAKE256(len[i], Bytes_2_Bits(msg[i])))
+        #to test other functions, change the name of the function
+        mine = Bits_2_Bytes(SHAKE128(len[i], Bytes_2_Bits(msg[i])))
         if mine != md[i]
             println("Uh oh.")
         end

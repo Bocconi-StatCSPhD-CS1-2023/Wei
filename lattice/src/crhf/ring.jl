@@ -10,7 +10,10 @@ struct PolyRing
     ΦI::Vector{Int}
 end
 
-function PolyRing(q, n, ni, w, ϕ)
+function PolyRing(q::Int, n::Int, ni::Int, w::Int, ϕ::Int)
+    if !isprime(q)
+        error("q must be a prime!")
+    end
     W = Vector{Int}(undef, n)
     W[1] = 1
     for i in 2:n
@@ -39,8 +42,8 @@ function PolyRing(q, n, ni, w, ϕ)
     return PolyRing(q, n, ni, ϕ, ϕi, W, WI, Φ, ΦI)
 end
 
-#Canonical Multiplication, for variation
-function mult(x, y, r)
+#Canonical Multiplication, for verification
+function mult(x::Vector{Int}, y::Vector{Int}, r::PolyRing)
     z = zeros(Int, r.n)
     for i in eachindex(x)
         for j in eachindex(y)
@@ -59,7 +62,7 @@ function mult(x, y, r)
 end
 
 #NTT 
-function NTT(a, r)
+function NTT(a::Vector{Int}, r::PolyRing)
     b = zeros(Int, r.n)
     for i in 1:r.n 
         tmp_w = 1
@@ -73,7 +76,7 @@ function NTT(a, r)
 end
 
 #Inverse NTT
-function INTT(b, r)
+function INTT(b::Vector{Int}, r::PolyRing)
     a = zeros(Int, r.n)
     for i in 1:r.n 
         tmp_wi = 1
@@ -88,7 +91,7 @@ function INTT(b, r)
 end
 
 #NTT multiplication, support half of the range
-function NTT_mult(x,y,r)
+function NTT_mult(x::Vector{Int}, y::Vector{Int}, r::PolyRing)
     a = NTT(x, r)
     b = NTT(y, r)
     c = Vector{Int}(undef, r.n)
@@ -99,7 +102,7 @@ function NTT_mult(x,y,r)
 end
 
 #NTT multiplication, support full range
-function NTT_mult_nega(x, y, r)
+function NTT_mult_nega(x::Vector{Int}, y::Vector{Int}, r::PolyRing)
     a = zeros(Int, r.n)
     b = zeros(Int, r.n)
     c = zeros(Int, r.n)

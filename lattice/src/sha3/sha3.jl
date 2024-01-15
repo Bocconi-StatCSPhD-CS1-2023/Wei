@@ -283,6 +283,8 @@ end
 
 #an example
 #M = Bytes_2_Bits(b"this code is brilliant")
-#h = SHA3_512(M)
+#h = SHA3_256(M)
 #println(Bits_2_Bytes(h))
+#one can compare it with some online sha-3 tools
+#for example, https://emn178.github.io/online-tools/sha3_256.html
 
