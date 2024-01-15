@@ -41,7 +41,7 @@ See the code and comments in test.jl for how to use and test the functions.
 
 
 
-In the file lattice.jl, I exported all the functions. The use is the same as the examples in the file. But to use them, remember to    using .lattice
+In the file lattice.jl, I exported all the functions. The use is the same as the examples in the file. 
 
 
 
