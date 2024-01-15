@@ -1,3 +1,5 @@
+ using Primes
+
 struct PolyRing
     q::Int
     n::Int
