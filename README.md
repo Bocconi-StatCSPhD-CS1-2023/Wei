@@ -46,3 +46,4 @@ In the file lattice.jl, I exported all the functions. The use is the same as the
 
 
 
+A collection of examples are included in the file examples.md

@@ -22,5 +22,5 @@ end
 
 #an example
 #ctx = HashContextSIS(43, 14, 43) # initialize the context, note that q has to be a prime
-#z = Random.rand(0:r.q-1, ctx.m) # randomly generate an input to the hash function
+#z = Random.rand(0:ctx.q-1, ctx.m) # randomly generate an input to the hash function
 #crhfSIS(z, ctx) # compute the hash
