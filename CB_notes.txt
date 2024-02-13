@@ -1,0 +1,10 @@
+* Good project. Limitations:
+  * Not very polished
+  * Not very optimizied (explicitly stated in the README)
+    - How does the SHA3 implementation compare with the Julia one (on the parts that are comparable)?
+  * Are there any other implementations around that we may compare with?
+* Notes:
+  * Julia naming style:
+    * modules normally use CamelCase names (e.g. Lattice, not lattice)
+    * function normally use underscores (e.g. get_random_prime, not getRandomPrime)
+  * See some comments in the files

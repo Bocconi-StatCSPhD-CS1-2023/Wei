@@ -5,7 +5,7 @@ struct HashContextSIS
     q::Int
     n::Int
     m::Int
-    A::Matrix
+    A::Matrix #<C> this is an abstract type; code such as crhfSIS won't be able to infer its type during compilation, hurting performance. If you want to keep it general, you can use a parametric type
 end
 
 function HashContextSIS(q::Int, n::Int, m::Int)

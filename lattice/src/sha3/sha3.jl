@@ -2,8 +2,8 @@ function parse_len(b)
     if !(b in [25, 50, 100, 200, 400, 800, 1600])
         error("Invalid parameters!")
     end
-    w = Int(b/25)
-    l = Int(log(2, w))
+    w = Int(b/25) #<C> better to use the `div` function here (which in operator form is called `÷`)
+    l = Int(log(2, w)) #<C> the function `log2` exists
     return w, l
 end
 
@@ -234,6 +234,7 @@ end
 
 
 #some helper functions
+#<C> not very optimized... are they only used for testing?
 
 function Bits_2_Int(B)
     rt = 0

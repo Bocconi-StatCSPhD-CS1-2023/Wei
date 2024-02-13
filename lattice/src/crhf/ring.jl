@@ -55,7 +55,7 @@ function mult(x::Vector{Int}, y::Vector{Int}, r::PolyRing)
                 z[d] -= x[i]*y[j] % r.q
             else
                 d = d + 1
-                z[d] += (x[i]*y[j] + r.q) % r.q
+                z[d] += (x[i]*y[j] + r.q) % r.q #<C> I guess that the +r.q here is in case the result is negative? Otherwise I don't see the point. If that's the case, you may want to use the `mod` function instead of `%` which implements the `rem` function.
             end 
             z[d] = (z[d] + r.q) % r.q
         end
@@ -94,6 +94,7 @@ end
 
 #NTT multiplication, support half of the range
 function NTT_mult(x::Vector{Int}, y::Vector{Int}, r::PolyRing)
+    #<C> indeed this is not quite optimized, especially the use of temporary storage in the vectors a,b is going to hurt perforance a lot
     a = NTT(x, r)
     b = NTT(y, r)
     c = Vector{Int}(undef, r.n)
